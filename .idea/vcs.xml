@@ -3,7 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ingestion" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/net.jgp.books.spark.ch07" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/net.jgp.books.spark.ch08" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sqlandtables" vcs="Git" />
   </component>
 </project>
