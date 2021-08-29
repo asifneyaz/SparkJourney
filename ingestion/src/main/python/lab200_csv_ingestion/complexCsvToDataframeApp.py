@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 import os
 current_dir = os.path.dirname(__file__)
-# determine data file path
+# determine data file path - modified
 relative_path = "../../../../data/books.csv"
 absolute_path = os.path.join(current_dir, relative_path)
 #spark session
