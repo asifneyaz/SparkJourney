@@ -1,8 +1,3 @@
-"""
- MySQL injection to Spark, using the Sakila sample database.
-
- @author rambabu.posa
-"""
 import logging
 from pyspark.sql import SparkSession
 
