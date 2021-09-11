@@ -18,8 +18,7 @@ print(type(wordsDF))
 wordsDF.printSchema()
 
 # Create a new DataFrame from an existing one
-# This use lazy evaluation: results are not computed right away – Spark remembers the set of transformations applied to the base DataFrame. Think of this as a recipe for creating result.
-#     Spark Actions like show(), collect() or count() then cause Spark to execute the recipe to transform the source. It is the mechanism for getting results out of Spark.
+# Spark Actions like show(), collect() or count() then cause Spark to execute the recipe to transform the source. It is the mechanism for getting results out of Spark.
 # Length of each word
 # You can create a new DataFrame from our base DF wordsDF by calling the select DataFrame function and pass in the appropriate recipe: we can use the SQL length function to find the number of characters in each word.
 # The length function is found in the pyspark.sql.functions module.
@@ -110,7 +109,7 @@ sentenceDF.show(truncate=False)
 #
 # Load a text file
 # For the next part, we will use the Complete Works of William Shakespeare from Project Gutenberg. To convert a text file into a DataFrame, we use the sqlContext.read.text() method. We also apply the recently defined removePunctuation() function using a select() transformation to strip out the punctuation and change all text to lower case. Since the file is large we use show(15), so that we only print 15 lines.
-fileName = "/Users/tech/codes/SparkJourney/data/PrideandPrejudice.txt"
+fileName = "PrideandPrejudice.txt"
 
 bookDF = spark.read.text(fileName).select(removePunctuation(col('value')))
 bookDF.show(15, truncate=False)
@@ -150,7 +149,7 @@ topWordsAndCountsDF.show()
 
 import os
 
-stopwords = set(sc.textFile("/Users/tech/codes/SparkJourney/data/PrideandPrejudice.txt").collect())
+stopwords = set(sc.textFile("PrideandPrejudice.txt").collect())
 # print('These are the stopwords: %s' % stopwords)
 # These are the stopwords: set([u'all', u'just', u'being', u'over', u'both', u'through', u'yourselves', u'its', u'before', u'with', u'had', u'should', u'to', u'only', u'under', u'ours', u'has', u'do', u'them', u'his', u'very', u'they', u'not', u'during', u'now', u'him', u'nor', u'did', u'these', u't', u'each', u'where', u'because', u'doing', u'theirs', u'some', u'are', u'our', u'ourselves', u'out', u'what', u'for', u'below', u'does', u'above', u'between', u'she', u'be', u'we', u'after', u'here', u'hers', u'by', u'on', u'about', u'of', u'against', u's', u'or', u'own', u'into', u'yourself', u'down', u'your', u'from', u'her', u'whom', u'there', u'been', u'few', u'too', u'themselves', u'was', u'until', u'more', u'himself', u'that', u'but', u'off', u'herself', u'than', u'those', u'he', u'me', u'myself', u'this', u'up', u'will', u'while', u'can', u'were', u'my', u'and', u'then', u'is', u'in', u'am', u'it', u'an', u'as', u'itself', u'at', u'have', u'further', u'their', u'if', u'again', u'no', u'when', u'same', u'any', u'how', u'other', u'which', u'you', u'who', u'most', u'such', u'why', u'a', u'don', u'i', u'having', u'so', u'the', u'yours', u'once'])
 type(stopwords)
