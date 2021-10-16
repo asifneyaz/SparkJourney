@@ -192,7 +192,7 @@ bookWordsNoStopDF = (bookWordsSplitDF.select(removeStopWords_udf("split").alias(
 bookWordsSingleDF = (bookWordsNoStopDF
                      .select(explode(bookWordsNoStopDF.wordsNoStop).alias('word')))
 bookWordsDF = bookWordsSingleDF.where(bookWordsSingleDF.word != '')
-bookWordsDF.show()
+bookWordsDF.groupBy('word').count().show()
 #
 # print(bookWordsDF.count())
 #
